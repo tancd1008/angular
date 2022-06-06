@@ -1,0 +1,30 @@
+<table class="table table-striped text-center">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Name</th>
+        <th>Gender</th>
+        <th>Age</th>
+        <th>Avatar</th>
+        <th>Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let teacher of users">
+        <td>{{teacher.id}} </td>
+        <td>
+            <app-table-name [name]="teacher.name"></app-table-name>
+        </td>
+        <td>
+            <app-table-gender [gender]="teacher.gender"></app-table-gender>
+        </td>
+        <td>{{teacher.age}} </td>
+        <td>
+          <app-table-avatar [avatar]="teacher.avatar" [age]="teacher.age"></app-table-avatar>
+        </td>
+        <td>
+            <app-table-status [status]="teacher.status"></app-table-status>
+        </td>
+      </tr>
+    </tbody>
+  </table>

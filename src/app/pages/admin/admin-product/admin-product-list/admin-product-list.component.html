@@ -1,0 +1,43 @@
+<div>
+    <a routerLink="/admin/products/create">
+        <button class="btn btn-success">Create</button>
+    </a>
+</div>
+<table class="table table-striped text-center">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>Name</th>
+            <th>Status</th>
+            <th>Action</th>
+            
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let product of products; index as i" >
+            <td>{{i+1}}</td>
+            <td>{{product.name}}</td>
+            <td>
+                <button
+                  *ngIf="product.status === 1"
+                  class="btn btn-success"
+                  (click)="onUpdateStatus(product._id, 0)"
+                >ON</button>
+                <button
+                  *ngIf="product.status === 0"
+                  class="btn btn-dark"
+                  (click)="onUpdateStatus(product._id, 1)"
+                >OFF</button>
+              </td>
+            <td>
+                <a routerLink="/admin/products/{{product._id}}"><button class="btn btn-info">Detail</button></a>
+                <!-- <a [routerLink]="['/admin','products', product._id]"><button class="btn btn-info">Detail</button></a> -->
+                <button class="btn btn-danger" (click)="onDelete(product._id)">Delete</button>
+                <a routerLink="/admin/products/edit/{{product._id}}">
+                    <button class="btn btn-warning">Edit</button>
+                  </a>
+            </td>
+            
+        </tr>
+    </tbody>
+</table>

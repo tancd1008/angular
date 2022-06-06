@@ -1,0 +1,14 @@
+<h2 class="">Thêm mới sản phẩm</h2>
+<!-- Định nghĩa biến quản lý form -->
+<form [formGroup]="productForm" (ngSubmit)="onSubmit()">
+    <div class="mb-3">
+        <label for="">Name</label>
+        <!--  Định nghĩa thuộc tính để lắng nghe input -->
+        <input type="text" class="form-control" formControlName="name">
+        <app-show-validate [field]="productForm.get('name')" key="Tên sản phẩm"></app-show-validate>
+        <!-- productForm.get('tên thuộc tính = new FormGroup()')  sẽ là kết quả khi lắng nghe -->
+    </div>
+    <div class="mb-3">
+        <button [disabled]="!productForm.valid" class="btn btn-success" >Submit</button>
+    </div>
+</form>

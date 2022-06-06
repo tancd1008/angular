@@ -1,0 +1,27 @@
+<span
+  *ngIf="(field.dirty || field.touched) && field.errors?.['required']"
+  class="text-danger">
+  {{key}} không được để trống
+</span>
+<span
+  *ngIf="(field.dirty || field.touched) && field.errors?.['minlength']"
+  class="text-danger">
+  {{key}} phải từ {{field.errors?.['minlength'].requiredLength}} ký tự
+</span>
+<span
+  *ngIf="(field.dirty || field.touched) && field.errors?.['maxlength']"
+  class="text-danger">
+  {{key}} tối đa {{field.errors?.['maxlength'].requiredLength}} ký tự
+</span>
+<span class="text-danger"
+  *ngIf="(field.dirty || field.touched) && field.errors?.['min']">
+  {{key}} tối thiểu là {{field.errors?.['min'].min}}
+</span>
+<span class="text-danger"
+  *ngIf="(field.dirty || field.touched) && field.errors?.['max']">
+  {{key}} tối đa là {{field.errors?.['max'].max}}
+</span>
+<span class="text-danger"
+  *ngIf="(field.dirty || field.touched) && field.errors?.['email']">
+  {{key}} sai định dạng
+</span>

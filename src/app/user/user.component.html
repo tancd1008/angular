@@ -1,0 +1,6 @@
+<app-user-form (handleSubmit)="onParentSubmit($event)" [inputValues]="formValues"></app-user-form>
+<app-user-list [users]="users" (handleRemove)="onRemove($event)" (handleEdit)="onEdit($event)"></app-user-list>
+<div>
+    <h1>Componet con</h1>
+    <router-outlet></router-outlet>
+</div>
