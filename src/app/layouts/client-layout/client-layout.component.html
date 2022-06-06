@@ -115,10 +115,10 @@ Purchase Premium Metronic Admin Theme: http://themeforest.net/item/metronic-resp
                 <!-- BEGIN TOP BAR MENU -->
                 <div class="col-md-6 col-sm-6 additional-nav">
                     <ul class="list-unstyled list-inline pull-right">
-                        <li><a href="shop-account.html">My Account</a></li>
-                        <li><a href="shop-wishlist.html">My Wishlist</a></li>
-                        <li><a href="shop-checkout.html">Checkout</a></li>
-                        <li><a href="page-login.html">Log In</a></li>
+                        <li><a routerLink="shop-account.html">My Account</a></li>
+                        <li><a routerLink="/admin">Admin</a></li>
+                        <li><a routerLink="shop-checkout.html">Checkout</a></li>
+                        <li><a routerLink="/auth/login">Log In</a></li>
                     </ul>
                 </div>
                 <!-- END TOP BAR MENU -->
@@ -508,7 +508,7 @@ Purchase Premium Metronic Admin Theme: http://themeforest.net/item/metronic-resp
 
     <div class="main">
       <div class="container">
-        
+        <router-outlet></router-outlet>
       </div>
     </div>
 
