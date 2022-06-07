@@ -17,9 +17,10 @@ import {HttpClientModule} from '@angular/common/http'
 
 import { ReactiveFormsModule } from '@angular/forms';
 import { LoginComponent } from './pages/auth/login/login.component';
-import { AdminListComponent } from './pages/admin/admin-book/admin-list/admin-list.component';
-import { AdminFormComponent } from './pages/admin/admin-book/admin-form/admin-form.component';
-import { AdminDetailComponent } from './pages/admin/admin-book/admin-detail/admin-detail.component';
+
+import { AdminBookListComponent } from './pages/admin/admin-book/admin-book-list/admin-book-list.component';
+import { AdminBookFormComponent } from './pages/admin/admin-book/admin-book-form/admin-book-form.component';
+import { AdminBookDetailComponent } from './pages/admin/admin-book/admin-book-detail/admin-book-detail.component';
 
 @NgModule({
   declarations: [
@@ -32,9 +33,9 @@ import { AdminDetailComponent } from './pages/admin/admin-book/admin-detail/admi
     AdminProductDetailComponent,
     AdminProductFormComponent,
     LoginComponent,
-    AdminListComponent,
-    AdminFormComponent,
-    AdminDetailComponent,
+    AdminBookListComponent,
+    AdminBookFormComponent,
+    AdminBookDetailComponent,
   ],
   imports: [
     BrowserModule,

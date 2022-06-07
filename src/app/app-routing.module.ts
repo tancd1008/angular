@@ -4,6 +4,7 @@ import { CanAccessAdminGuard } from './guards/can-access-admin.guard';
 import { HomeComponent } from './home/home.component';
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
 import { ClientLayoutComponent } from './layouts/client-layout/client-layout.component';
+import { AdminBookListComponent } from './pages/admin/admin-book/admin-book-list/admin-book-list.component';
 import { AdminProductDetailComponent } from './pages/admin/admin-product/admin-product-detail/admin-product-detail.component';
 import { AdminProductFormComponent } from './pages/admin/admin-product/admin-product-form/admin-product-form.component';
 import { AdminProductListComponent } from './pages/admin/admin-product/admin-product-list/admin-product-list.component';
@@ -83,6 +84,10 @@ const routes: Routes = [
            component: AdminProductDetailComponent
          }// Đẩy admin/products/id xuống dưới cùng tránh việc nhầm :id = 'create'
        ]
+     },
+     {
+       path: 'books',
+       component: AdminBookListComponent
      }
     ]
   }
