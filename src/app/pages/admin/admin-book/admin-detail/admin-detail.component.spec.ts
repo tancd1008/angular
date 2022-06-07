@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { TableAvatarComponent } from './table-avatar.component';
+import { AdminDetailComponent } from './admin-detail.component';
 
-describe('TableAvatarComponent', () => {
-  let component: TableAvatarComponent;
-  let fixture: ComponentFixture<TableAvatarComponent>;
+describe('AdminDetailComponent', () => {
+  let component: AdminDetailComponent;
+  let fixture: ComponentFixture<AdminDetailComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ TableAvatarComponent ]
+      declarations: [ AdminDetailComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(TableAvatarComponent);
+    fixture = TestBed.createComponent(AdminDetailComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

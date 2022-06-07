@@ -8,8 +8,7 @@ import { AdminProductDetailComponent } from './pages/admin/admin-product/admin-p
 import { AdminProductFormComponent } from './pages/admin/admin-product/admin-product-form/admin-product-form.component';
 import { AdminProductListComponent } from './pages/admin/admin-product/admin-product-list/admin-product-list.component';
 import { LoginComponent } from './pages/auth/login/login.component';
-import { UserFormComponent } from './user/user-form/user-form.component';
-import { UserComponent } from './user/user.component';
+
 
 
 const routes: Routes = [
