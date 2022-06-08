@@ -21,6 +21,7 @@ import { LoginComponent } from './pages/auth/login/login.component';
 import { AdminBookListComponent } from './pages/admin/admin-book/admin-book-list/admin-book-list.component';
 import { AdminBookFormComponent } from './pages/admin/admin-book/admin-book-form/admin-book-form.component';
 import { AdminBookDetailComponent } from './pages/admin/admin-book/admin-book-detail/admin-book-detail.component';
+import { CartComponent } from './components/cart/cart.component';
 
 @NgModule({
   declarations: [
@@ -36,6 +37,7 @@ import { AdminBookDetailComponent } from './pages/admin/admin-book/admin-book-de
     AdminBookListComponent,
     AdminBookFormComponent,
     AdminBookDetailComponent,
+    CartComponent,
   ],
   imports: [
     BrowserModule,
