@@ -1,1 +1,25 @@
-<p>admin-book-list works!</p>
+<div>
+    <a routerLink="/admin/products/create">
+        <button class="btn btn-success">Create</button>
+    </a>
+</div>
+<table class="table table-striped text-center">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Action</th>
+            
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let book of books; index as i" >
+            <td>{{i+1}}</td>
+            <td>{{book.name}}</td>
+            <td>{{book.price}}</td>
+           
+                
+        </tr>
+    </tbody>
+</table>

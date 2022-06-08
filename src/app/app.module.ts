@@ -14,14 +14,14 @@ import { AdminProductListComponent } from './pages/admin/admin-product/admin-pro
 import { AdminProductDetailComponent } from './pages/admin/admin-product/admin-product-detail/admin-product-detail.component';
 import { AdminProductFormComponent } from './pages/admin/admin-product/admin-product-form/admin-product-form.component';
 import {HttpClientModule} from '@angular/common/http'
-
 import { ReactiveFormsModule } from '@angular/forms';
 import { LoginComponent } from './pages/auth/login/login.component';
-
+import { ToastrModule } from 'ngx-toastr';
 import { AdminBookListComponent } from './pages/admin/admin-book/admin-book-list/admin-book-list.component';
 import { AdminBookFormComponent } from './pages/admin/admin-book/admin-book-form/admin-book-form.component';
 import { AdminBookDetailComponent } from './pages/admin/admin-book/admin-book-detail/admin-book-detail.component';
 import { CartComponent } from './components/cart/cart.component';
+import { BookListComponent } from './pages/client/book-list/book-list.component';
 
 @NgModule({
   declarations: [
@@ -38,6 +38,7 @@ import { CartComponent } from './components/cart/cart.component';
     AdminBookFormComponent,
     AdminBookDetailComponent,
     CartComponent,
+    BookListComponent,
   ],
   imports: [
     BrowserModule,
@@ -45,7 +46,8 @@ import { CartComponent } from './components/cart/cart.component';
     NgbModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    ToastrModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]
