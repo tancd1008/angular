@@ -23,6 +23,9 @@ import { AdminBookDetailComponent } from './pages/admin/admin-book/admin-book-de
 import { CartComponent } from './components/cart/cart.component';
 import { BookListComponent } from './pages/client/book-list/book-list.component';
 import { BookDetailComponent } from './pages/client/book-detail/book-detail.component';
+import { SignupComponent } from './pages/auth/signup/signup.component';
+import { CommonModule } from '@angular/common';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -41,6 +44,7 @@ import { BookDetailComponent } from './pages/client/book-detail/book-detail.comp
     CartComponent,
     BookListComponent,
     BookDetailComponent,
+    SignupComponent,
   ],
   imports: [
     BrowserModule,
@@ -49,6 +53,8 @@ import { BookDetailComponent } from './pages/client/book-detail/book-detail.comp
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
+    CommonModule,
+    BrowserAnimationsModule,
     ToastrModule.forRoot()
   ],
   providers: [],

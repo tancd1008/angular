@@ -9,6 +9,7 @@ import { AdminProductDetailComponent } from './pages/admin/admin-product/admin-p
 import { AdminProductFormComponent } from './pages/admin/admin-product/admin-product-form/admin-product-form.component';
 import { AdminProductListComponent } from './pages/admin/admin-product/admin-product-list/admin-product-list.component';
 import { LoginComponent } from './pages/auth/login/login.component';
+import { SignupComponent } from './pages/auth/signup/signup.component';
 import { BookDetailComponent } from './pages/client/book-detail/book-detail.component';
 import { BookListComponent } from './pages/client/book-list/book-list.component';
 
@@ -43,6 +44,10 @@ const routes: Routes = [
           {
             path: 'login',
             component: LoginComponent
+          },
+          {
+            path: 'signup',
+            component: SignupComponent
           }
         ]
       }

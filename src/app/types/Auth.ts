@@ -6,7 +6,13 @@ export type TypeLoginRequest = {
   export type TypeLoginResponse = {
     accessToken: string,
     user: {
-      id: number,
+      _id: string,
       email: string
     }
+  };
+  export type TypeSignUpRequest = {
+    name: string,
+    email: string,
+    password: string,
+    role: number
   };

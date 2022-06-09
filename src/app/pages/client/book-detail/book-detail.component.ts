@@ -11,6 +11,7 @@ import { BookType } from 'src/app/types/Books';
 })
 export class BookDetailComponent implements OnInit {
   book: BookType;
+  cartItemValue: number = 1;
   constructor(
     private bookService: BookService,
     private activateRoute: ActivatedRoute,
@@ -30,9 +31,29 @@ export class BookDetailComponent implements OnInit {
     const idFromUrl = this.activateRoute.snapshot.params['id']
     this.bookService.getBook(idFromUrl).subscribe(data => {
       this.book = data;
-      console.log(data);
       
     })
+  }
+  onInputValueChange(event: any){
+    this.cartItemValue = event.target.value
+  }
+  onAddToCart(){
+    // 1. Định nghĩa cấu trúc dữ liệu thêm vào giỏ
+    // const price = this.book.price-this.book.sale_price;
+  
+    
+    const addItem = {
+      id: this.book._id,
+      name: this.book.name,
+      price: (this.book.price/100)*(100-this.book.sale_price),
+      sale_price: this.book.sale_price,
+      image_url: this.book.image_url,
+      desc: this.book.desc,
+      value: +this.cartItemValue
+    }
+    
+    this.lsService.setItem(addItem);
+    this.cartItemValue = 1;
   }
 
 }

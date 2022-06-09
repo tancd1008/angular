@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { LocalStorageService } from 'src/app/services/local-storage.service';
+import { BookCartType } from 'src/app/types/Books';
 import { ProductCartType } from 'src/app/types/Product';
 
 @Component({
@@ -8,8 +9,10 @@ import { ProductCartType } from 'src/app/types/Product';
   styleUrls: ['./cart.component.css']
 })
 export class CartComponent implements OnInit {
-  cartItems: ProductCartType[] = [];
+  cartItems: BookCartType[] = [];
   cartItemValues: number = 0;
+  total_price: number = 0;
+  user: any;
   constructor(
     private lsService: LocalStorageService
   ) { }
@@ -22,15 +25,16 @@ export class CartComponent implements OnInit {
       // Khi serviceSubject.next('') thì subscribe sẽ được gọi
       this.onSetCartItems();
     });
+    this.user = this.lsService.getUser();
   }
   onSetCartItems() {
     this.cartItems = JSON.parse(localStorage.getItem('cart') || '[]');
-    this.cartItemValues = 0
+    this.cartItemValues = 0;
+    this.total_price = 0;
     this.cartItems.forEach(item => {
         this.cartItemValues += item.value;
-        
+        this.total_price += item.price
       })
-      console.log(this.cartItemValues);
      
       
   }

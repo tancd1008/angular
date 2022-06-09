@@ -63,7 +63,6 @@ export class AdminProductDetailComponent implements OnInit {
     // // 4. Cập nhật dữ liệu giỏ hàng
     // localStorage.setItem('cart', JSON.stringify(cartItems));
     // 5. Cập nhật lại giá trị cho ô input value
-    this.lsService.setItem(addItem);
     this.cartItemValue = 1;
   }
 
