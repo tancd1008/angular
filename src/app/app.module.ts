@@ -22,6 +22,7 @@ import { AdminBookFormComponent } from './pages/admin/admin-book/admin-book-form
 import { AdminBookDetailComponent } from './pages/admin/admin-book/admin-book-detail/admin-book-detail.component';
 import { CartComponent } from './components/cart/cart.component';
 import { BookListComponent } from './pages/client/book-list/book-list.component';
+import { BookDetailComponent } from './pages/client/book-detail/book-detail.component';
 
 @NgModule({
   declarations: [
@@ -39,6 +40,7 @@ import { BookListComponent } from './pages/client/book-list/book-list.component'
     AdminBookDetailComponent,
     CartComponent,
     BookListComponent,
+    BookDetailComponent,
   ],
   imports: [
     BrowserModule,

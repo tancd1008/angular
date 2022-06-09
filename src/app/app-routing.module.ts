@@ -9,6 +9,8 @@ import { AdminProductDetailComponent } from './pages/admin/admin-product/admin-p
 import { AdminProductFormComponent } from './pages/admin/admin-product/admin-product-form/admin-product-form.component';
 import { AdminProductListComponent } from './pages/admin/admin-product/admin-product-list/admin-product-list.component';
 import { LoginComponent } from './pages/auth/login/login.component';
+import { BookDetailComponent } from './pages/client/book-detail/book-detail.component';
+import { BookListComponent } from './pages/client/book-list/book-list.component';
 
 
 
@@ -21,24 +23,20 @@ const routes: Routes = [
         path: '',
         component: HomeComponent
       },
-      // {
-      //   path: 'user',
-      //   // component: UserComponent,
-      //   children: [
-      //     {
-      //       path: '',
-      //       component: UserComponent
-      //     },
-      //     {
-      //       path: 'create',
-      //       component: UserFormComponent
-      //     },
-      //     {
-      //       path: 'edit',
-      //       component: UserFormComponent
-      //     }
-      //   ]
-      // }
+      {
+        path: 'books',
+        children: [
+          {
+            path: '',
+            component: HomeComponent
+          },
+          {
+            path: ':id',
+            component: BookDetailComponent
+          }
+        ]
+      },
+     
       {
         path: 'auth',
         children:[
@@ -55,15 +53,7 @@ const routes: Routes = [
     canActivate: [CanAccessAdminGuard], // Đưa vào đây để kiểm soát đc trước khi vào admin
     component: AdminLayoutComponent,
     children: [
-    //  {
-    //   path: '',
-    //   redirectTo: 'users',
-    //   pathMatch: 'full'
-    //  },
-    //  {
-    //   path: 'users',
-    //   component: UserComponent
-    //  },
+   
      {
        path: 'products',
        children: [
@@ -87,7 +77,14 @@ const routes: Routes = [
      },
      {
        path: 'books',
-       component: AdminBookListComponent
+       children:
+       [
+        {
+          path: '',
+          component: AdminBookListComponent
+        }
+        
+       ]
      }
     ]
   }
