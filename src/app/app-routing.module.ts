@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { CanAccessAdminGuard } from './guards/can-access-admin.guard';
+import { CanAccessLoginGuard } from './guards/can-access-login.guard';
 import { HomeComponent } from './home/home.component';
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
 import { ClientLayoutComponent } from './layouts/client-layout/client-layout.component';
@@ -58,6 +59,7 @@ const routes: Routes = [
       },
       {
         path: 'auth',
+        canActivate: [CanAccessLoginGuard],
         children:[
           {
             path: 'login',

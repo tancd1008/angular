@@ -37,6 +37,8 @@ export class SignupComponent implements OnInit {
     this.authService.signup(data).subscribe(data => {
       this.toastr.success("Bạn đăng ký thành công");
       this.redirectToLogin()
-    })
+    },error => {
+      this.toastr.warning(error.error.message)
+    });
   }
 }

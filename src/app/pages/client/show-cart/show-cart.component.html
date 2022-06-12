@@ -11,6 +11,7 @@
                     <th class="goods-page-description">Description</th>
                     <th class="goods-page-quantity">Quantity</th>
                     <th class="goods-page-total" >Price</th>
+                    <th class="goods-page-action" >Action</th>
                   </tr>
             </thead>
             <tbody>
@@ -34,7 +35,8 @@
                     <td class="goods-page-price">
                       <strong><span>$</span>{{cartItem.price}}</strong>
                     </td>
-                    <td class="goods-page-total">
+                    <td class="goods-page-action">
+                      <button class="btn btn-danger" (click)="onRemove(cartItem.id)">Remove</button>
                     </td>
                     
                   </tr>

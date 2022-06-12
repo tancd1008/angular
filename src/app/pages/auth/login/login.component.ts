@@ -47,6 +47,8 @@ export class LoginComponent implements OnInit {
       this.toastr.success("Bạn đăng nhập thành công")
       // 2. Điều hướng quay về admin
       this.redirectToHome()      
+    },error => {
+      this.toastr.warning(error.error.message)
     });
   }
 }

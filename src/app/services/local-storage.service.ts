@@ -34,5 +34,15 @@ export class LocalStorageService {
     //2. Phát tín hiệu để lắng nghe watchService
     this.serviceSubject.next('');
   }
+  remove(id:string|undefined){
+    let cartItems = this.getItem()
+    const confirm =  window.confirm("Bạn có muốn xóa sản phẩm này khỏi giỏ hàng không ?")
+    if (confirm) {
+      cartItems = cartItems.filter((item:any) => item.id !== id)
+    localStorage.setItem('cart', JSON.stringify(cartItems));
+    this.serviceSubject.next('')
+    }
+    
+  }
  
 }

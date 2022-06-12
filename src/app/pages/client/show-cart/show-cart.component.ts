@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ToastrService } from 'ngx-toastr';
 import { LocalStorageService } from 'src/app/services/local-storage.service';
 import { BookCartType } from 'src/app/types/Books';
 
@@ -12,7 +13,8 @@ export class ShowCartComponent implements OnInit {
   cartItemValues: number = 0;
   total_price: number = 0;
   constructor(
-    private lsServives: LocalStorageService
+    private lsServives: LocalStorageService,
+    private toastr: ToastrService
   ) { }
 
   ngOnInit(): void {
@@ -37,6 +39,10 @@ export class ShowCartComponent implements OnInit {
       })
      
       
+  }
+  onRemove(id: string|undefined){
+    this.lsServives.remove(id);
+    this.toastr.success("Bạn xóa thành công")
   }
 }
 
