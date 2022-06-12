@@ -1,1 +1,55 @@
-<p>admin-book-form works!</p>
+<h2 class="">Thêm mới sản phẩm</h2>
+<!-- Định nghĩa biến quản lý form -->
+<form [formGroup]="bookForm" (ngSubmit)="onSubmit()">
+    <div class="mb-3">
+        <label for="">Name</label>
+        <!--  Định nghĩa thuộc tính để lắng nghe input -->
+        <input type="text" class="form-control" formControlName="name">
+        <app-show-validate [field]="bookForm.get('name')" key="Tên sản phẩm"></app-show-validate>
+        <!-- bookForm.get('tên thuộc tính = new FormGroup()')  sẽ là kết quả khi lắng nghe -->
+    </div>
+    <div class="mb-3">
+        <label for="">Price</label>
+        <!--  Định nghĩa thuộc tính để lắng nghe input -->
+        <input type="text" class="form-control" formControlName="price">
+        <app-show-validate [field]="bookForm.get('price')" key="Giá sản phẩm"></app-show-validate>
+        <!-- bookForm.get('tên thuộc tính = new FormGroup()')  sẽ là kết quả khi lắng nghe -->
+    </div>
+    <div class="mb-3">
+        <label for="">Sale</label>
+        <!--  Định nghĩa thuộc tính để lắng nghe input -->
+        <input type="text" class="form-control" formControlName="sale_price">
+        <app-show-validate [field]="bookForm.get('sale_price')" key="Sale"></app-show-validate>
+        <!-- bookForm.get('tên thuộc tính = new FormGroup()')  sẽ là kết quả khi lắng nghe -->
+    </div>
+    <div class="mb-3">
+        <label for="">Desc</label>
+        <!--  Định nghĩa thuộc tính để lắng nghe input -->
+        <input type="text" class="form-control" formControlName="desc">
+        <app-show-validate [field]="bookForm.get('desc')" key="Nội dung"></app-show-validate>
+        <!-- bookForm.get('tên thuộc tính = new FormGroup()')  sẽ là kết quả khi lắng nghe -->
+    </div>
+    <div class="mb-3">
+        <label for="">Ảnh</label>
+        <!--  Định nghĩa thuộc tính để lắng nghe input -->
+        <input type="text" class="form-control" formControlName="image_url">
+        <app-show-validate [field]="bookForm.get('image_url')" key="Nội dung"></app-show-validate>
+        <!-- bookForm.get('tên thuộc tính = new FormGroup()')  sẽ là kết quả khi lắng nghe -->
+    </div>
+    <div class="mb-3" >
+        <label for="">Danh Mục</label>
+        <!-- <select  class="form-select" aria-label="Default select example" formControlName="category_id">
+            <div>
+            <option selected >--Chọn Loại Hàng--</option>
+            <option *ngFor="let category of categories" [value]="category._id">{{category.name}}</option>
+            </div>
+        </select> -->
+        <select class="form-select" aria-label="Default select example" formControlName="category_id">
+            <option *ngFor="let category of categories" value="{{category._id}}">{{category.name}}</option>
+           
+          </select>
+    </div>
+    <div class="mb-3">
+        <button [disabled]="!bookForm.valid" class="btn btn-success" >Submit</button>
+    </div>
+</form>

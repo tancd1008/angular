@@ -1,0 +1,45 @@
+<div>
+    <a routerLink="/admin/categories/create">
+        <button class="btn btn-success">Create</button>
+    </a>
+</div>
+<table class="table table-striped text-center">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>Name</th>
+            <th>Status</th>
+            <th>Role</th>
+            <th>Action</th>
+            
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let category of categories; index as i" >
+            <td>{{i+1}}</td>
+            <td>{{category.name}}</td>
+            <td>
+                <button
+                  *ngIf="category.status === 1"
+                  class="btn btn-success"
+                  (click)="onUpdateStatus(category._id, 0)"
+                >ON</button>
+                <button
+                  *ngIf="category.status === 0"
+                  class="btn btn-dark"
+                  (click)="onUpdateStatus(category._id, 1)"
+                >OFF</button>
+            </td>
+              
+            <td>
+                <!-- <a routerLink="/admin/users/{{user._id}}"><button class="btn btn-info">Detail</button></a> -->
+                <button class="btn btn-danger" (click)="onDelete(category._id)" >Delete</button>
+                
+                <a routerLink="/admin/categories/edit/{{category._id}}">
+                    <button class="btn btn-warning">Edit</button>
+                </a>
+            </td>
+            
+        </tr>
+    </tbody>
+</table>

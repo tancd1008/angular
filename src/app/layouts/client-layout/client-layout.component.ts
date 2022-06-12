@@ -13,7 +13,7 @@ import { CategoryType } from 'src/app/types/Category';
   styleUrls: ['./client-layout.component.css']
 })
 export class ClientLayoutComponent implements OnInit {
-  categorys: CategoryType[] = [];
+  categories: CategoryType[] = [];
   user: any = [];
   alo: any = 0;
   a: any;
@@ -36,7 +36,7 @@ export class ClientLayoutComponent implements OnInit {
   }
   onGetListCate(){
     this.categoryService.getCategorys().subscribe(data => {
-      this.categorys = data;
+      this.categories = data;
     })
   }
   redirectToHome(){

@@ -13,15 +13,16 @@ import { CategoryType } from 'src/app/types/Category';
 })
 export class CategotyBookComponent implements OnInit {
   categoryBooks: BookType[] = [];
-  categorys: CategoryType;
+  categories: CategoryType;
   constructor(
     private categoryService: CategoryService,
     private activatedRoute: ActivatedRoute,
     private router: Router
     ) {
-      this.categorys = {
+      this.categories = {
         _id: '',
-        name: ''
+        name: '',
+        status: 0
       }
      }
      private serviceSubject = new Subject<string>();// vừa giống Observerble có thể lắng nghe được, vừa phát được sự kiện để lắng nghe
@@ -36,7 +37,7 @@ export class CategotyBookComponent implements OnInit {
     this.categoryService.getCategoryBook(id).subscribe(data =>{
       console.log(data)
       this.categoryBooks = data.book
-      this.categorys = data.category
+      this.categories = data.category
     })
   }
 

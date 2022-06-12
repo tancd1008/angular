@@ -28,6 +28,11 @@ import { CommonModule } from '@angular/common';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { CategotyBookComponent } from './pages/client/categoty-book/categoty-book.component';
 import { ShowCartComponent } from './pages/client/show-cart/show-cart.component';
+import { AdminUserListComponent } from './pages/admin/admin-user/admin-user-list/admin-user-list.component';
+import { AdminUserFormComponent } from './pages/admin/admin-user/admin-user-form/admin-user-form.component';
+import { AdminCategoryListComponent } from './pages/admin/admin-category/admin-category-list/admin-category-list.component';
+import { AdminCategoryFormComponent } from './pages/admin/admin-category/admin-category-form/admin-category-form.component';
+import { ShowStatusComponent } from './components/show-status/show-status.component';
 
 @NgModule({
   declarations: [
@@ -49,6 +54,11 @@ import { ShowCartComponent } from './pages/client/show-cart/show-cart.component'
     SignupComponent,
     CategotyBookComponent,
     ShowCartComponent,
+    AdminUserListComponent,
+    AdminUserFormComponent,
+    AdminCategoryListComponent,
+    AdminCategoryFormComponent,
+    ShowStatusComponent
   ],
   imports: [
     BrowserModule,

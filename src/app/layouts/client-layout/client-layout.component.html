@@ -167,7 +167,7 @@ Purchase Premium Metronic Admin Theme: http://themeforest.net/item/metronic-resp
               <!-- END DROPDOWN MENU -->
             </li>
             <li class="dropdown dropdown-megamenu">
-              <a class="dropdown-toggle" data-toggle="dropdown" data-target="#" href="javascript:;">
+              <a class="dropdown-toggle" data-toggle="dropdown" data-target="#" routerLink="/books">
                 Product
               </a>
               <ul class="dropdown-menu">
@@ -176,7 +176,7 @@ Purchase Premium Metronic Admin Theme: http://themeforest.net/item/metronic-resp
                     <div class="">
                       <div class="header-navigation-col">
                         <ul>
-                          <li *ngFor="let category of categorys">
+                          <li *ngFor="let category of categories">
                             <a routerLink="/category/{{category._id}}">{{category.name}}</a>
                           </li>
                           

@@ -26,6 +26,8 @@ export class BookDetailComponent implements OnInit {
       sale_price: 0,
       desc: '',
       image_url: '',
+      status: 0,
+      category_id: ''
     }
   }
 

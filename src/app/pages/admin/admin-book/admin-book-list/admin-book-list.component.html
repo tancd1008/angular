@@ -1,5 +1,5 @@
 <div>
-    <a routerLink="/admin/products/create">
+    <a routerLink="/admin/books/create">
         <button class="btn btn-success">Create</button>
     </a>
 </div>
@@ -8,7 +8,10 @@
         <tr>
             <th>#</th>
             <th>Name</th>
+            <th>Image</th>
             <th>Price</th>
+            <th>Description</th>
+            <th>Status</th>
             <th>Action</th>
             
         </tr>
@@ -17,8 +20,31 @@
         <tr *ngFor="let book of books; index as i" >
             <td>{{i+1}}</td>
             <td>{{book.name}}</td>
-            <td>{{book.price}}</td>
-           
+            <td >
+                <img [src]="book.image_url" alt="" style="width: 48px; height: 60px">
+            </td>
+            <td>{{book.price}}$</td>
+            <td>{{book.desc}}</td>
+            <td>
+                <button
+                *ngIf="book.status === 1"
+                class="btn btn-success"
+                (click)="onUpdateStatus(book._id, 0)"
+              >ON</button>
+              <button
+                *ngIf="book.status === 0"
+                class="btn btn-dark"
+                (click)="onUpdateStatus(book._id, 1)"
+              >OFF</button>
+            </td>
+            <td>
+                <a routerLink="/admin/products/{{book._id}}"><button class="btn btn-info">Detail</button></a>
+                <!-- <a [routerLink]="['/admin','products', product._id]"><button class="btn btn-info">Detail</button></a> -->
+                <button class="btn btn-danger" (click)="onDelete(book._id)">Delete</button>
+                <a routerLink="/admin/books/edit/{{book._id}}">
+                    <button class="btn btn-warning">Edit</button>
+                </a>
+            </td>
                 
         </tr>
     </tbody>

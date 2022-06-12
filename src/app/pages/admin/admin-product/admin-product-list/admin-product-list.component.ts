@@ -39,6 +39,8 @@ export class AdminProductListComponent implements OnInit {
     this.productService.updateProduct(`${productId}`, {
       status: newStatus
     }).subscribe(data => {
+      console.log(newStatus);
+      
       this.onGetList();
     });
   }

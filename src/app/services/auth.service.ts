@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, Subject } from 'rxjs';
 import { environment } from 'src/environments/environment';
-import { TypeLoginRequest, TypeLoginResponse, TypeSignUpRequest } from '../types/Auth';
+import { TypeLoginRequest, TypeLoginResponse, TypeSignUpRequest, UserType, UserTypeUpdate } from '../types/Auth';
 
 @Injectable({
   providedIn: 'root'
@@ -29,6 +29,15 @@ export class AuthService {
   getUser(alo: any){
     this.serviceSubject.next(1)
     JSON.parse(localStorage.getItem('loggedInUser') || 'null')
+  }
+  listUsers(): Observable<UserType[]>{
+    return this.http.get<UserType[]>(environment.users)
+  }
+  updateUser (id: string, data: UserTypeUpdate): Observable<UserType> {
+    return this.http.patch<UserType>(`${environment.users}/${id}`, data);
+  }
+  deleteUser (id: string): Observable<number> {
+    return this.http.delete<number>(`${environment.users}/${id}`)
   }
   
   
