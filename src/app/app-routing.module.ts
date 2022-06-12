@@ -12,6 +12,8 @@ import { LoginComponent } from './pages/auth/login/login.component';
 import { SignupComponent } from './pages/auth/signup/signup.component';
 import { BookDetailComponent } from './pages/client/book-detail/book-detail.component';
 import { BookListComponent } from './pages/client/book-list/book-list.component';
+import { CategotyBookComponent } from './pages/client/categoty-book/categoty-book.component';
+import { ShowCartComponent } from './pages/client/show-cart/show-cart.component';
 
 
 
@@ -37,7 +39,19 @@ const routes: Routes = [
           }
         ]
       },
-     
+      {
+        path: 'category',
+        children: [
+          {
+            path: ':id',
+            component: CategotyBookComponent
+          }
+        ]
+      },
+      {
+        path: 'cart',
+        component: ShowCartComponent
+      },
       {
         path: 'auth',
         children:[

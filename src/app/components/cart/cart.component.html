@@ -1,7 +1,5 @@
-<div class="top-cart-info" *ngIf="user">
-    <a href="" class="top-cart-info-count">{{cartItemValues}}</a>
+<div class="top-cart-info" >
+    <a href="" class="top-cart-info-count">{{cartItemValues}} items</a>
     <a href="" class="top-cart-info-value">${{total_price}}</a>
-</div><div class="top-cart-info" *ngIf="!user">
-    <a href="" class="top-cart-info-count">--</a>
-    <a href="" class="top-cart-info-value">--</a>
 </div>
+

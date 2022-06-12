@@ -26,6 +26,8 @@ import { BookDetailComponent } from './pages/client/book-detail/book-detail.comp
 import { SignupComponent } from './pages/auth/signup/signup.component';
 import { CommonModule } from '@angular/common';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { CategotyBookComponent } from './pages/client/categoty-book/categoty-book.component';
+import { ShowCartComponent } from './pages/client/show-cart/show-cart.component';
 
 @NgModule({
   declarations: [
@@ -45,6 +47,8 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
     BookListComponent,
     BookDetailComponent,
     SignupComponent,
+    CategotyBookComponent,
+    ShowCartComponent,
   ],
   imports: [
     BrowserModule,

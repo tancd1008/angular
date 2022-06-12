@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
+import { AuthService } from 'src/app/services/auth.service';
 import { CategoryService } from 'src/app/services/category.service';
 import { LocalStorageService } from 'src/app/services/local-storage.service';
 import { TypeLoginResponse } from 'src/app/types/Auth';
@@ -13,21 +14,28 @@ import { CategoryType } from 'src/app/types/Category';
 })
 export class ClientLayoutComponent implements OnInit {
   categorys: CategoryType[] = [];
-  user: any;
+  user: any = [];
+  alo: any = 0;
+  a: any;
+  b: any;
   constructor(
     private categoryService: CategoryService,
-    private lsService: LocalStorageService,
+    private authService: AuthService,
     private toastr: ToastrService,
     private router: Router
     ) { 
+      
     }
 
   ngOnInit(): void {
     this.onGetListCate();
-    this.user = this.lsService.getUser();
+   
+    
+    
+    
   }
   onGetListCate(){
-    this.categoryService.getCategory().subscribe(data => {
+    this.categoryService.getCategorys().subscribe(data => {
       this.categorys = data;
     })
   }
@@ -37,7 +45,26 @@ export class ClientLayoutComponent implements OnInit {
   }
   onLogOut(){
     this.toastr.success('Log out')
-    this.lsService.logOut();
+    this.authService.logOut();
     location.reload()
   }
+  // checkUser(){
+  //   this.user = this.authService.getUser(this.alo);
+  //   console.log(this.user,"2");
+
+  //   if(this.user !== null){
+  //     // this.a = "Log out";
+  //     // this.b = this.user.user.name;
+  //     console.log("Có");
+      
+  //   }else{
+  //     // this.a = "Log In";
+  //     // this.b = "Sign Up"
+  //     console.log("Không");
+
+  //   }
+    
+    
+  // }
+  
 }

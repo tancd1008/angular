@@ -17,13 +17,7 @@ export class LocalStorageService {
   getItem() {
     return JSON.parse(localStorage.getItem('cart') || '[]');
   }
-  getUser(){
-    const user =  localStorage.getItem('loggedInUser');
-    if(!user){
-      return false;
-    }
-    return user;
-  }
+  
   setItem(addItem: BookCartType) {
     //1. Cập nhật dữ liệu vao localstorage 
     const cartItems = this.getItem();
@@ -40,7 +34,5 @@ export class LocalStorageService {
     //2. Phát tín hiệu để lắng nghe watchService
     this.serviceSubject.next('');
   }
-  logOut(){
-    return localStorage.removeItem('loggedInUser')
-  }
+ 
 }

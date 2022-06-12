@@ -7,6 +7,7 @@ export type TypeLoginRequest = {
     accessToken: string,
     user: {
       _id: string,
+      name: string,
       email: string
     }
   };

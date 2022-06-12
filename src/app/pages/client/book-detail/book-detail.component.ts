@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { BookService } from 'src/app/services/book.service';
 import { LocalStorageService } from 'src/app/services/local-storage.service';
 import { BookType } from 'src/app/types/Books';
@@ -15,7 +16,8 @@ export class BookDetailComponent implements OnInit {
   constructor(
     private bookService: BookService,
     private activateRoute: ActivatedRoute,
-    private lsService: LocalStorageService
+    private lsService: LocalStorageService,
+    private toastr: ToastrService
   ) { 
     this.book = {
       _id: '',
@@ -54,6 +56,7 @@ export class BookDetailComponent implements OnInit {
     
     this.lsService.setItem(addItem);
     this.cartItemValue = 1;
+    this.toastr.success("Bạn thêm thành công")
   }
 
 }
