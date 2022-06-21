@@ -47,6 +47,15 @@ export class ShowCartComponent implements OnInit {
     this.lsServives.remove();
     this.toastr.success("Thanh toán thành công")
   }
+  onDecrease(id: any){
+    this.lsServives.decrease(id)
+    this.toastr.success("Cập nhật thành công")
+
+  }
+  onIncrease(id: any){
+    this.lsServives.increase(id);
+    this.toastr.success("Cập nhật thành công")
+  }
 }
 
 

@@ -78,9 +78,9 @@ export class ClientLayoutComponent implements OnInit {
     console.log(this.userData);
     
     if(this.userData){
-      this.a = 1;
      console.log("Co");
-     
+     this.b = "Log out";
+      this.d = "Hello";
     }else{
       this.b = "Log in";
       this.d = "Sing Up"

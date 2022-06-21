@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { ToastrService } from 'ngx-toastr';
 import { Observable, Subject } from 'rxjs';
 import { BookCartType } from '../types/Books';
 import { ProductCartType } from '../types/Product';
@@ -8,7 +9,9 @@ import { ProductCartType } from '../types/Product';
 })
 export class LocalStorageService {
 
-  constructor() { }
+  constructor(
+    private toastr: ToastrService
+  ) { }
   // Định nghĩa xem cách nào lắng nghe được localStorage
   private serviceSubject = new Subject<string>();// vừa giống Observerble có thể lắng nghe được, vừa phát được sự kiện để lắng nghe
   watchService(): Observable<any> {
@@ -46,6 +49,30 @@ export class LocalStorageService {
     const confirm = window.confirm("Bán có muốn thanh toán không!")
     if(confirm){
       localStorage.removeItem('cart');
+    }
+    this.serviceSubject.next('')
+  }
+  increase(id:string){
+    let cartItems = this.getItem()
+    const cartItem = cartItems.find((product:any) => product.id === id)
+    cartItem.value++
+    localStorage.setItem('cart', JSON.stringify(cartItems));
+    this.serviceSubject.next('')
+  }
+  decrease(id:string){
+    let cartItems = this.getItem()
+    const currentItem = cartItems.find((product:any) => product.id === id)
+    currentItem.value--
+    localStorage.setItem('cart', JSON.stringify(cartItems));
+    if (currentItem.value  < 1) {
+     const confirm =  window.confirm("Bạn có muốn xóa sản phẩm này khỏi giỏ hàng không ?")
+      if (confirm) {
+        cartItems = cartItems.filter((item:any) => item.id !== currentItem.id)
+        localStorage.setItem('cart', JSON.stringify(cartItems));
+      }else{
+        currentItem.value = 1
+        localStorage.setItem('cart', JSON.stringify(cartItems));
+      }
     }
     this.serviceSubject.next('')
   }
