@@ -11,6 +11,7 @@
                     <th class="goods-page-description">Description</th>
                     <th class="goods-page-quantity">Quantity</th>
                     <th class="goods-page-total" >Price</th>
+                    <th class="goods-page-total" >Total</th>
                     <th class="goods-page-action" >Action</th>
                   </tr>
             </thead>
@@ -33,7 +34,10 @@
                       </div>
                     </td>
                     <td class="goods-page-price">
-                      <strong><span>$</span>{{cartItem.price}}</strong>
+                      <strong><span>$</span>{{(cartItem.price/100*(100-cartItem.sale_price))}}</strong>
+                    </td>
+                    <td class="goods-page-price">
+                      <strong><span>$</span>{{(cartItem.price/100*(100-cartItem.sale_price))*cartItem.value}}</strong>
                     </td>
                     <td class="goods-page-action">
                       <button class="btn btn-danger" (click)="onRemove(cartItem.id)">Remove</button>
@@ -66,6 +70,6 @@
       <a routerLink="/books">
         <button class="btn btn-default" type="submit">Continue shopping <i class="fa fa-shopping-cart"></i></button>
       </a>
-      <button class="btn btn-primary" type="submit">Checkout <i class="fa fa-check"></i></button>
+      <button class="btn btn-primary" type="submit" (click)="ondelete()">Checkout <i class="fa fa-check"></i></button>
     </div>
   </div>

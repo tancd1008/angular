@@ -12,6 +12,7 @@
             <th>Price</th>
             <th>Description</th>
             <th>Status</th>
+            <th>Sale</th>
             <th>Action</th>
             
         </tr>
@@ -37,6 +38,7 @@
                 (click)="onUpdateStatus(book._id, 1)"
               >OFF</button>
             </td>
+            <td>{{book.sale_price}} %</td>
             <td>
                 <a routerLink="/admin/products/{{book._id}}"><button class="btn btn-info">Detail</button></a>
                 <!-- <a [routerLink]="['/admin','products', product._id]"><button class="btn btn-info">Detail</button></a> -->

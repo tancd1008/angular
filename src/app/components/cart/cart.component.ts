@@ -32,7 +32,7 @@ export class CartComponent implements OnInit {
     this.total_price = 0;
     this.cartItems.forEach(item => {
         this.cartItemValues += item.value;
-        this.total_price += item.price
+        this.total_price += ((item.price/100*(100-item.sale_price))*item.value)
       })
      
       

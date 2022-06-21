@@ -33,6 +33,7 @@ import { AdminUserFormComponent } from './pages/admin/admin-user/admin-user-form
 import { AdminCategoryListComponent } from './pages/admin/admin-category/admin-category-list/admin-category-list.component';
 import { AdminCategoryFormComponent } from './pages/admin/admin-category/admin-category-form/admin-category-form.component';
 import { ShowStatusComponent } from './components/show-status/show-status.component';
+import { AdminCategoryDetailComponent } from './pages/admin/admin-category/admin-category-detail/admin-category-detail.component';
 
 @NgModule({
   declarations: [
@@ -58,7 +59,8 @@ import { ShowStatusComponent } from './components/show-status/show-status.compon
     AdminUserFormComponent,
     AdminCategoryListComponent,
     AdminCategoryFormComponent,
-    ShowStatusComponent
+    ShowStatusComponent,
+    AdminCategoryDetailComponent
   ],
   imports: [
     BrowserModule,

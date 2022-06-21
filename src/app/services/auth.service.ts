@@ -26,9 +26,15 @@ export class AuthService {
   logOut(){
     return localStorage.removeItem('loggedInUser')
   }
-  getUser(alo: any){
-    this.serviceSubject.next(1)
-    JSON.parse(localStorage.getItem('loggedInUser') || 'null')
+  getUser(){
+   const user =  JSON.parse(localStorage.getItem('loggedInUser') as string)
+   if(!user){
+    return false;
+   }
+   
+   this.serviceSubject.next('');
+   return user
+
   }
   listUsers(): Observable<UserType[]>{
     return this.http.get<UserType[]>(environment.users)

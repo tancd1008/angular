@@ -16,8 +16,8 @@
               <strong><span>$</span>{{book.price/100*(100-book.sale_price)}}</strong>
               <em *ngIf="book.sale_price">$<span >{{book.price}}</span></em>
             </div>
-            <div class="availability">
-              Availability: <strong>In Stock</strong>
+            <div class="availability text-danger fw-bold" *ngIf="book.status == 0">
+              Hết hàng
             </div>
           </div>
           <div class="description">
@@ -47,6 +47,7 @@
         </div>
 
         <div *ngIf="book.sale_price > 0" class="sticker sticker-sale"></div>
+        
         
       </div>
     </div>

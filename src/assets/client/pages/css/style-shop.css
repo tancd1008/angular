@@ -364,6 +364,11 @@ Header and header elements
 	left: auto;
 	right: 0;
 }
+.sticker-hethang {
+	background: url(../../pages/img/hethang1.png) no-repeat;
+	left: auto;
+	right: 0;
+}
 .pi-img-wrapper {
 	position: relative;
 }

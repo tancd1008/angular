@@ -31,18 +31,21 @@ export class ShowCartComponent implements OnInit {
     
     this.cartItemValues = 0;
     this.total_price = 0;
-    console.log(this.cartItems);
     
     this.cartItems.forEach(item => {
         this.cartItemValues += item.value;
-        this.total_price += item.price
+        this.total_price += ((item.price/100*(100-item.sale_price))*item.value)
       })
      
       
   }
   onRemove(id: string|undefined){
-    this.lsServives.remove(id);
+    this.lsServives.removeById(id);
     this.toastr.success("Bạn xóa thành công")
+  }
+  ondelete(){
+    this.lsServives.remove();
+    this.toastr.success("Thanh toán thành công")
   }
 }
 

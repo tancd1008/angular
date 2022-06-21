@@ -49,16 +49,21 @@ export class BookDetailComponent implements OnInit {
     const addItem = {
       id: this.book._id,
       name: this.book.name,
-      price: (this.book.price/100)*(100-this.book.sale_price),
+      price: +this.book.price,
       sale_price: this.book.sale_price,
       image_url: this.book.image_url,
       desc: this.book.desc,
       value: +this.cartItemValue
     }
+    if(this.book.status == 0){
+      this.toastr.warning("Sản phẩm đã hết!")
+    }else{
+      this.lsService.setItem(addItem);
+      this.cartItemValue = 1;
+      this.toastr.success("Bạn thêm thành công")
+    }
     
-    this.lsService.setItem(addItem);
-    this.cartItemValue = 1;
-    this.toastr.success("Bạn thêm thành công")
+    
   }
 
 }

@@ -7,6 +7,7 @@ import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.compon
 import { ClientLayoutComponent } from './layouts/client-layout/client-layout.component';
 import { AdminBookFormComponent } from './pages/admin/admin-book/admin-book-form/admin-book-form.component';
 import { AdminBookListComponent } from './pages/admin/admin-book/admin-book-list/admin-book-list.component';
+import { AdminCategoryDetailComponent } from './pages/admin/admin-category/admin-category-detail/admin-category-detail.component';
 import { AdminCategoryFormComponent } from './pages/admin/admin-category/admin-category-form/admin-category-form.component';
 import { AdminCategoryListComponent } from './pages/admin/admin-category/admin-category-list/admin-category-list.component';
 import { AdminProductDetailComponent } from './pages/admin/admin-product/admin-product-detail/admin-product-detail.component';
@@ -29,7 +30,7 @@ const routes: Routes = [
     children: [
       {
         path: '',
-        component: HomeComponent
+        component: BookListComponent
       },
       {
         path: 'books',
@@ -140,6 +141,10 @@ const routes: Routes = [
         {
           path: 'edit/:id',
           component: AdminCategoryFormComponent
+        },
+        {
+          path: ':id',
+          component: AdminCategoryDetailComponent
         }
       ]
      }

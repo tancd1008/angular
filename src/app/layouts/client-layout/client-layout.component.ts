@@ -14,24 +14,48 @@ import { CategoryType } from 'src/app/types/Category';
 })
 export class ClientLayoutComponent implements OnInit {
   categories: CategoryType[] = [];
-  user: any = [];
-  alo: any = 0;
-  a: any;
-  b: any;
+  userData: TypeLoginResponse;
+  a: number = 0;
+  b: string ;
+  d: string ;
   constructor(
     private categoryService: CategoryService,
     private authService: AuthService,
     private toastr: ToastrService,
     private router: Router
     ) { 
-      
+      this.userData = {
+        accessToken : '',
+        user :{
+          _id:'',
+          email:'',
+          name:'',
+          role:0
+      }
+      }
+      this.b = '';
+      this.d = ''
     }
 
   ngOnInit(): void {
+    
     this.onGetListCate();
-   
+    this.checkUser();
+    const checkUser = localStorage.getItem('loggedInUser');
+    if(checkUser){
+      this.b = "Log out";
+      this.d = "Hello";
+    }else{
+      this.b = "Log in";
+      this.d = "Sing Up"
+    }
+
     
-    
+    this.authService.watchService().subscribe(data => {    
+      console.log(100); 
+      this.checkUser()
+      
+    })    
     
   }
   onGetListCate(){
@@ -48,23 +72,33 @@ export class ClientLayoutComponent implements OnInit {
     this.authService.logOut();
     location.reload()
   }
-  // checkUser(){
-  //   this.user = this.authService.getUser(this.alo);
-  //   console.log(this.user,"2");
+  checkUser(){
+    
+    this.userData = this.authService.getUser();
+    console.log(this.userData);
+    
+    if(this.userData){
+      this.a = 1;
+     console.log("Co");
+     
+    }else{
+      this.b = "Log in";
+      this.d = "Sing Up"
+      console.log("Khong");
 
-  //   if(this.user !== null){
-  //     // this.a = "Log out";
-  //     // this.b = this.user.user.name;
-  //     console.log("Có");
+    }
+
+    // if(this.ktUser !== null){
+    //   this.user = 0
+    //   this.b = this.ktUser.user.name;
+    //   console.log("Có");
       
-  //   }else{
-  //     // this.a = "Log In";
-  //     // this.b = "Sign Up"
-  //     console.log("Không");
-
-  //   }
+    // }else{
+    //   console.log("Không");
+    //   this.user = 1;
+    // }
     
     
-  // }
+  }
   
 }

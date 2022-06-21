@@ -8,7 +8,8 @@ export type TypeLoginRequest = {
     user: {
       _id: string,
       name: string,
-      email: string
+      email: string,
+      role: number
     }
   };
   export type TypeSignUpRequest = {

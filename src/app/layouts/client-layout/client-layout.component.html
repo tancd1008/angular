@@ -114,17 +114,17 @@ Purchase Premium Metronic Admin Theme: http://themeforest.net/item/metronic-resp
                 <div class="col-md-6 col-sm-6 additional-nav">
                     <ul class="list-unstyled list-inline pull-right">
                         <li><a routerLink="/admin">Admin</a></li>
-                        <li *ngIf="user" >
-                          <a routerLink=""  (click)="onLogOut()">Log Out</a>
+                        <li *ngIf="userData" >
+                          <a routerLink=""  (click)="onLogOut()">{{b}}</a>
                         </li>
-                        <li >
-                          <a routerLink="/auth/login">Hello</a>
+                        <li *ngIf="userData" >
+                          <span>{{d}}</span>
                         </li>
-                        <li  >
-                          <a routerLink="/auth/login" >Log In</a>
-                        </li>
-                        <li  >
-                          <a routerLink="/auth/signup">Sign up</a>
+                        <li *ngIf="!userData">
+                          <a routerLink="/auth/login" >{{b}}</a>
+                        </li >
+                        <li *ngIf="!userData" >
+                          <a routerLink="/auth/signup">{{d}}</a>
                         </li>
                     </ul>
                 </div>

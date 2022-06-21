@@ -28,13 +28,12 @@ export class LocalStorageService {
       cartItems.push(addItem);
     }else{
       exitsItem.value += addItem.value;
-      exitsItem.price += (addItem.price*addItem.value)
     }
     localStorage.setItem('cart', JSON.stringify(cartItems));
     //2. Phát tín hiệu để lắng nghe watchService
     this.serviceSubject.next('');
   }
-  remove(id:string|undefined){
+  removeById(id:string|undefined){
     let cartItems = this.getItem()
     const confirm =  window.confirm("Bạn có muốn xóa sản phẩm này khỏi giỏ hàng không ?")
     if (confirm) {
@@ -42,7 +41,13 @@ export class LocalStorageService {
     localStorage.setItem('cart', JSON.stringify(cartItems));
     this.serviceSubject.next('')
     }
-    
+  }
+  remove(){
+    const confirm = window.confirm("Bán có muốn thanh toán không!")
+    if(confirm){
+      localStorage.removeItem('cart');
+    }
+    this.serviceSubject.next('')
   }
  
 }
